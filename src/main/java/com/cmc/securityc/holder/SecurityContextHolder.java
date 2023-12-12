@@ -20,7 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @SuppressWarnings(value = {"unchecked"})
 public class SecurityContextHolder {
-
     /**
      * 线程本地
      */

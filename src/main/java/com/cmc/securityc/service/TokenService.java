@@ -42,13 +42,13 @@ public class TokenService {
         refreshToken(loginUser);
 
         // Jwt存储信息
-        Map<String, Object> claimsMap = new HashMap<String, Object>();
+        Map<String, Object> claimsMap = new HashMap<>();
         claimsMap.put(SecurityConstants.USER_KEY, token);
         claimsMap.put(SecurityConstants.USER_ID, userId);
         claimsMap.put(SecurityConstants.DETAILS_USERNAME, userName);
 
         // 接口返回信息
-        Map<String, Object> rspMap = new HashMap<String, Object>();
+        Map<String, Object> rspMap = new HashMap<>();
         rspMap.put("access_token", JwtUtils.createToken(claimsMap));
         rspMap.put("expires_in", expireTime);
         return rspMap;
@@ -60,7 +60,7 @@ public class TokenService {
      * @return 用户信息
      */
     @SuppressWarnings("unused")
-    public <K,T> LoginUser<K,T> getLoginUser() {
+    public <L extends LoginUser<K,T>,K,T> L getLoginUser() {
         return getLoginUser(ServletUtils.getRequest());
     }
 
@@ -79,7 +79,7 @@ public class TokenService {
      *
      * @return 用户信息
      */
-    public <K,T> LoginUser<K,T> getLoginUser(HttpServletRequest request) {
+    public <L extends LoginUser<K,T>,K,T> L getLoginUser(HttpServletRequest request) {
         // 获取请求携带的令牌
         String token = SecurityUtils.getToken(request);
         return getLoginUser(token);
@@ -90,8 +90,8 @@ public class TokenService {
      *
      * @return 用户信息
      */
-    public <K,T> LoginUser<K,T> getLoginUser(String token) {
-        LoginUser<K,T> user = null;
+    public <L extends LoginUser<K,T>,K,T> L getLoginUser(String token) {
+        L user = null;
         try {
             if (StringUtils.isNotEmpty(token)) {
                 String userkey = JwtUtils.getUserKey(token);

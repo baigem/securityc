@@ -1,8 +1,8 @@
 package com.cmc.securityc.domain;
 
 import lombok.Data;
-import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Set;
  * &#064;date  2023/12/12
  */
 @Data
-public abstract class LoginUser<K,T> implements UserDetails {
+public abstract class LoginUser<K,T>  implements Serializable {
     /**
      * 用户id
      */
