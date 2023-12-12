@@ -9,7 +9,6 @@ import com.cmc.securityc.domain.LoginUser;
 import com.cmc.securityc.exception.UniversalCodeException;
 import com.cmc.securityc.holder.SecurityContextHolder;
 import com.cmc.securityc.utils.JwtUtils;
-import com.cmc.securityc.utils.SecurityUtils;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

@@ -5,6 +5,7 @@ import com.cmc.securityc.constant.CacheConstants;
 import com.cmc.securityc.constant.SecurityConstants;
 import com.cmc.securityc.domain.LoginUser;
 import com.cmc.securityc.utils.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -16,7 +17,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * token验证处理
  *
- * @author cmc
+ * @author 程梦城
+ * @version 1.0.0
+ * &#064;date  2023/12/12
  */
 @Component
 public class TokenService {
@@ -26,8 +29,12 @@ public class TokenService {
     private final static long expireTime = CacheConstants.EXPIRATION;
 
     private final static String ACCESS_TOKEN = CacheConstants.LOGIN_TOKEN_KEY;
-    @Resource
-    private SecuritycCacheService securitycCacheService;
+    private final SecuritycCacheService securitycCacheService;
+
+    @Autowired
+    public TokenService(SecuritycCacheService securitycCacheService){
+        this.securitycCacheService = securitycCacheService;
+    }
 
     /**
      * 创建令牌

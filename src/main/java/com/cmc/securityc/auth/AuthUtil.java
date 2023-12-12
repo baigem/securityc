@@ -50,7 +50,7 @@ public class AuthUtil {
     /**
      * 验证当前用户有效期
      */
-    public static void verifyLoginUserExpire(LoginUser loginUser) {
+    public static void verifyLoginUserExpire(LoginUser<?,?> loginUser) {
         authLogic.verifyLoginUserExpire(loginUser);
     }
 

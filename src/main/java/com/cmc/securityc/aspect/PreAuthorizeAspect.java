@@ -32,8 +32,7 @@ public class PreAuthorizeAspect {
     /**
      * 构建
      */
-    public PreAuthorizeAspect() {
-    }
+    public PreAuthorizeAspect() {}
 
     /**
      * 声明AOP签名

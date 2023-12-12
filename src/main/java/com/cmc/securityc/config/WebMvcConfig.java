@@ -2,6 +2,7 @@ package com.cmc.securityc.config;
 
 import cn.hutool.extra.spring.SpringUtil;
 import com.cmc.securityc.interceptor.HeaderInterceptor;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  *
  * @author cmc
  */
+@ComponentScan("com.cmc")
 public class WebMvcConfig implements WebMvcConfigurer {
     /**
      * 不需要拦截地址

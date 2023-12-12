@@ -1,7 +1,7 @@
 package com.cmc.securityc.utils;
 
 import cn.hutool.core.convert.Convert;
-import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson.JSON;
 import com.cmc.securityc.constant.Constants;
 import com.cmc.securityc.domain.Cache;
 import org.springframework.core.io.buffer.DataBuffer;

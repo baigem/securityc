@@ -3,9 +3,9 @@ package com.cmc.securityc.exception;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class UniversalCodeException extends RuntimeException{
-    @Getter
-    private Integer code;
+    private final Integer code;
     public UniversalCodeException(Integer httpStatus, String msg) {
         super(msg,null,false,false);
         this.code = httpStatus;

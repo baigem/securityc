@@ -2,7 +2,7 @@ package com.cmc.securityc.exception;
 
 public class NotRoleException extends RuntimeException{
     public NotRoleException(String role) {
-        super(role,null,false,false);
+        super("Not role"+role,null,false,false);
     }
 
     public NotRoleException(String[] roles) {

@@ -1,4 +1,4 @@
 com.cmc.securityc.config.WebMvcConfig
-com.cmc.securityc.service.TokenService
 com.cmc.securityc.aspect.PreAuthorizeAspect
 com.cmc.securityc.aspect.InnerAuthAspect
+com.cmc.securityc.service.TokenService
