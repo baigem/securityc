@@ -76,7 +76,7 @@ public class SecurityUtils {
      * 获取登录用户信息
      */
     public static <K,T> LoginUser<K,T> getLoginUser() {
-        return SecurityContextHolder.get(SecurityConstants.LOGIN_USER, LoginUser.class);
+        return SecurityContextHolder.get(SecurityConstants.LOGIN_USER, null);
     }
 
     /**

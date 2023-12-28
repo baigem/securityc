@@ -57,14 +57,14 @@ public class HeaderInterceptor implements AsyncHandlerInterceptor {
         SecurityContextHolder.setOpenId(JwtUtils.getOpenId(claims));
         // 设置手机号
         SecurityContextHolder.setPhone(JwtUtils.getPhone(claims));
-        Thread.currentThread().getContextClassLoader().loadClass(AuthUtil.class.getName());
         LoginUser<?,?> loginUser = AuthUtil.getLoginUser(token);
-        if (ObjectUtil.isNotNull(loginUser)) {
-            // 校验是否过期
-            AuthUtil.verifyLoginUserExpire(loginUser);
-            // 设置登录用户信息
-            SecurityContextHolder.set(SecurityConstants.LOGIN_USER, loginUser);
+        if(loginUser == null){
+            throw new UniversalCodeException(HttpStatus.UNAUTHORIZED, "登录已过期，请重新登录后访问");
         }
+        // 校验是否过期
+        AuthUtil.verifyLoginUserExpire(loginUser);
+        // 设置登录用户信息
+        SecurityContextHolder.set(SecurityConstants.LOGIN_USER, loginUser);
         return true;
     }
 
