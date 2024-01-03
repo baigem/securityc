@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 
 /**
- * 基于 Spring Aop 的注解鉴权
+ * 基于 Spring Aop 的注解鉴权 此切片暂时废弃
  *
  * @author kong
  */
